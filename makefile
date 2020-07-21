@@ -7,3 +7,20 @@ kind-up:
 
 kind-down:
 	kind delete cluster --name dev-cluster
+
+# =============
+# Admin
+
+echo:
+	@echo $(shell pwd) 
+
+# ===================
+# Installing Applications
+
+install-prom-helm:
+	helm repo add stable https://kubernetes-charts.storage.googleapis.com
+	helm repo update
+	kubectl create ns monitoring
+	helm install stable/prometheus-operator -g -n monitoring
+
+install-prom-manifests:
