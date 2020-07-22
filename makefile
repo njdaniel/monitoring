@@ -3,7 +3,7 @@
 # Setting up k8s/dev kind env
 
 kind-up:
-	kind create cluster --name dev-cluster
+	kind create cluster --name dev-cluster --config ./kind-config.yaml
 
 kind-down:
 	kind delete cluster --name dev-cluster
@@ -23,4 +23,4 @@ install-prom-helm:
 	kubectl create ns monitoring
 	helm install stable/prometheus-operator -g -n monitoring
 
-install-prom-manifests:
+#install-prom-manifests:
