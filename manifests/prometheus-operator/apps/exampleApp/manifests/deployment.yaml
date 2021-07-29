@@ -1,0 +1,25 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  creationTimestamp: null
+  labels:
+    app: myapp
+  name: myapp
+  namespace: my-namespace
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: myapp
+  strategy: {}
+  template:
+    metadata:
+      creationTimestamp: null
+      labels:
+        app: myapp
+    spec:
+      containers:
+      - image: prom-example-app:latest
+        name: prom-example-app
+        resources: {}
+status: {}
